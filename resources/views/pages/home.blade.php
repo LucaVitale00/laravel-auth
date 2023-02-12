@@ -3,7 +3,7 @@
 @section('content')
     
     <div class="card-body">
-        <h1>I miei progetti</h1>
+        <h1>My projects</h1>
         @guest
         @else    
         <a href="{{ route('admin.project.create') }}">CREATE NEW TASK</a>
