@@ -2,26 +2,34 @@
 
 @section('content')
     
-    <h1>CONTENT</h1>
+<div class="container ms_main d-flex justify-content-center">
+
+<div class="card" style="width: 18rem;">
+    <img src="{{ $project->main_image }}" class="card-img-top" alt="...">
+
     <div class="card-body">
-        <h1>{{$project -> name}}</h1>
-
-        <img src="{{$project -> main_image}}" alt="">
-        <h3>Description</h3>
-        <p>{{$project -> description}}</p>
-        <div>
-            <span>Relese date: {{$project -> relase_date }}</span>
-        </div>
-        <a href="{{$project -> repo_link}}">{{$project -> repo_link}}</a>
-           @guest
-            @else
-                <div>
-                    <a href="{{ route('admin.project.delete', $project) }}">Delete</a>
-                    <a href="{{ route('admin.project.edit', $project) }}">
-                        EDIT
-                    </a>
-                </div>
-            @endguest
-
+        <h5 class="card-title">{{ $project->name }}</h5>
+        @if ($project->description !== null)
+            <p class="card-text">{{ $project->description }}</p>
+        @else
+            <p class="card-text">-No Description-</p>
+        @endif
     </div>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Release Date: </b>{{ $project->release_date }}</li>
+        <li class="list-group-item">
+            Link Repository:
+            <a href="{{ $project->repo_link }}" class="card-link">HERE</a>
+        </li>
+    </ul>
+
+    @auth
+        <div class="card-body">
+            <a href="{{ route('admin.project.edit', $project) }}" class="btn btn-secondary">Modify</a>
+            <a href="{{ route('admin.project.delete', $project) }}" class="btn btn-danger">Remove</a>
+        </div>
+    @endauth
+</div>
+</div>
 @endsection

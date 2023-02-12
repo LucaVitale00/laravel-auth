@@ -2,25 +2,28 @@
 
 @section('content')
     
-    <h1>New project</h1>
-    <form method="POST" action="{{ route('admin.project.update', $project) }}">
+<form action="{{ route('admin.project.update', $project) }}" method="POST">
         @csrf
-        <label for="name">Name</label>
-        <input type="text" name="name" value={{ $project -> name }}>
+        <label for="name">Name: </label>
+        <input type="text" name="name" value="{{ $project->name }}">
         <br>
-        <label for="description">Description</label>
-        <input type="text" name="description" value={{ $project -> description }}>
+
+        <label for="description">Description: </label>
+        <textarea name="description" cols="30" rows="10">{{ $project->description }}</textarea>
         <br>
-        <label for="main_image">Image</label>
-        <input type="text" name="main_image" value={{ $project -> main_image }}>
+
+        <label for="main_image">Link Image: </label>
+        <input type="text" name="main_image" value="{{ $project->main_image }}">
         <br>
-        <label for="relase_date">Release Date</label>
-        <input type="date" name="relase_date" value={{ $project -> relase_date }}>
+
+        <label for="release_date">Release Date: </label>
+        <input type="date" name="release_date" value="{{ $project->release_date }}">
         <br>
-        <label for="repo_link">Repo</label>
-        <input type="text" name="repo_link" value={{ $project -> repo_link }}>
+
+        <label for="repo_link">Repo Link: </label>
+        <input type="text" name="repo_link" value="{{ $project->repo_link }}">
         <br>
-        <input type="submit" value="UPDATE project">
+        <input type="submit" value="Update Project">
     </form>
 
 @endsection

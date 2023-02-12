@@ -1,1 +1,28 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+.ms_main {
+    margin-top: 40px;
+}
+
+.ms_desc {
+    min-height: 130px;
+}
+
+.ms_copyright {
+    padding: 0 15px 10px;
+}
+
+.ms_card-img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.ms_img_preview {
+    height: 100px;
+    object-fit: contain;
+    box-shadow: 0px 0px 10px gray;
+}
+
+.ms_container-form {
+    margin: 30px 0;
+}

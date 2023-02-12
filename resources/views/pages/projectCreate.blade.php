@@ -2,25 +2,28 @@
 
 @section('content')
     
-    <h1>New Project</h1>
-    <form method="POST" action="{{ route('admin.project.store') }}">
+<form action="{{ route('admin.project.store') }}" method="POST">
         @csrf
-        <label for="name">Name</label>
+        <label for="name">Name: </label>
         <input type="text" name="name">
         <br>
-        <label for="description">Description</label>
-        <input type="text" name="description">
+
+        <label for="description">Description: </label>
+        <textarea name="description" cols="30" rows="10"></textarea>
         <br>
-        <label for="main_image">Image</label>
+
+        <label for="main_image">Link Image: </label>
         <input type="text" name="main_image">
         <br>
-        <label for="relase_date">Release Date</label>
-        <input type="date" name="relase_date">
+
+        <label for="release_date">Release Date: </label>
+        <input type="date" name="release_date">
         <br>
-        <label for="repo_link">Repo</label>
+
+        <label for="repo_link">Repo Link: </label>
         <input type="text" name="repo_link">
         <br>
-        <input type="submit" value="CREATE NEW PROJECT">
+        <input type="submit" value="Add Project">
     </form>
 
 @endsection
